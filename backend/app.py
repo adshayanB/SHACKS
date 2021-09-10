@@ -37,15 +37,15 @@ def db_drop():
 @app.cli.command('dbSeed')
 def db_seed():
     testUser=User( public_id=str(uuid.uuid4()),
-                    firstName='User',
-                    lastName='Test',
-                    email='doctor@doctor.com',
-                    phoneNumber='4166666666',
-                    accountNumberCHEQ='ADCCCHDHFH1111',
-                    accountNumberSAV='ADSHJDSHDSFHDSHF',
+                    firstName='Brian',
+                    lastName='Porter',
+                    email='brianporter@scotiabank,ca',
+                    phoneNumber='+16479685141',
+                    accountNumberCHEQ='002FSZFX223A',
+                    accountNumberSAV='005GSDFC223Y',
                     savings=12699.42,
                     chequing=200.12,
-                    code="69696969")
+                    code="AXDS")
     db.session.add(testUser)
     db.session.commit()
     print('Seeded')
@@ -72,16 +72,15 @@ class Transaction(db.Model):
      accFrom = Column(String())
      date=Column(String())
 
-@app.route("/accountBalance", methods=["POST"])
-def viewBalanceSMS():
-    current_user = User.query.filter_by(code="69696969").first()
+def viewBalanceSMS(phoneNumberVal):
+    current_user = User.query.filter_by(phoneNumber=phoneNumberVal).first()
     user_data={}
     user_data['accountNumberSAV']=current_user.accountNumberSAV
     user_data['savings']=current_user.savings
     user_data['accountNumberCHEQ']=current_user.accountNumberCHEQ
     user_data['chequing']=current_user.chequing
 
-    return jsonify(user_data)
+    return user_data
 
 @app.route("/userMessage", methods=["POST", "GET"])
 def userMessage():
@@ -102,10 +101,10 @@ def userMessage():
     return str(response)
   
 @app.route("/transaction", methods=["GET", "POST"])
-def transactionSMS():
+def transactionSMS(phoneNumberUser):
     trans=request.json
 
-    current_user = User.query.filter_by(code="69696969").first()
+    current_user = User.query.filter_by(phoneNumber='+16479685141').first()
     print(trans)
     transNew=Transaction(public_id=str(uuid.uuid4()),
                         accountNumber=trans["AN"],
