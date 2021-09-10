@@ -104,7 +104,7 @@ def userMessage():
 def transactionSMS(phoneNumberUser):
     trans=request.json
 
-    current_user = User.query.filter_by(phoneNumber='+16479685141').first()
+    current_user = User.query.filter_by(phoneNumber=phoneNumberUser).first()
     print(trans)
     transNew=Transaction(public_id=str(uuid.uuid4()),
                         accountNumber=trans["AN"],
