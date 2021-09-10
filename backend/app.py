@@ -164,6 +164,29 @@ def trans():
     else:
         return jsonify(message='You do not have any Transaction Data')
 
+@app.route('/transfer')
+def transfer():
+    current_user = User.query.filter_by(code="69696969").first()
+    req=request.json
+    sendTo=req["sendTo"]
+    transNew=Transaction(public_id=str(uuid.uuid4()),
+                        accountNumber=sendTo,
+                        transactionValue=req["value"],
+                        accFrom=current_user.accountNumberCHEQ,
+                        date=datetime.datetime.now())
+    db.session.add(transNew)
+    db.session.commit()
+    
+    user_data={}
+    user_data['chequing']=current_user.chequing
+
+    current_user.chequing = user_data['chequing']-req["value"]
+
+
+    return jsonify(message="TRANSFER SUCCESS")
+
+
+
 
 
 
