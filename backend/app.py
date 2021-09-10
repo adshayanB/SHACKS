@@ -168,9 +168,8 @@ def trans():
 def transfer():
     current_user = User.query.filter_by(code="69696969").first()
     req=request.json
-    sendTo=req["sendTo"]
     transNew=Transaction(public_id=str(uuid.uuid4()),
-                        accountNumber=sendTo,
+                        accountNumber=req["sendTo"],
                         transactionValue=req["value"],
                         accFrom=current_user.accountNumberCHEQ,
                         date=datetime.datetime.now())
