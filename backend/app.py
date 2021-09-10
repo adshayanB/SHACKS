@@ -139,6 +139,8 @@ def trans(phoneNumberVal, numberTrans, accountNumberVal):
     user_data['savings']=current_user.savings
     user_data['accountNumberCHEQ']=current_user.accountNumberCHEQ
     user_data['chequing']=current_user.chequing
+    if (accountNumberVal != user_data['accountNumberSAV'] and accountNumberVal != user_data['accountNumberCHEQ'] ):
+        return -1
 
     transall=Transaction.query.filter_by(accountNumber=accountNumberVal).order_by('date').all()
     output=[]
@@ -147,12 +149,10 @@ def trans(phoneNumberVal, numberTrans, accountNumberVal):
         for data in reversed(transall):
             if count!=numberTrans:
                 transData={}
-                transData['AccountNumber']=data.accountNumber
                 transData['TransactionValue']=data.transactionValue
                 transData['From']=data.accFrom
                 transData['Date']=data.date
                 count+=1
-
                 output.append(transData)
             else:
                 break
@@ -160,13 +160,11 @@ def trans(phoneNumberVal, numberTrans, accountNumberVal):
     else:
         return -1
 
-@app.route('/transfer')
-def transfer():
-    current_user = User.query.filter_by(code="69696969").first()
-    req=request.json
+def transfer(phoneNumberVal, sendToVal, valueVal):
+    current_user = User.query.filter_by(phoneNumber=phoneNumberVal).first()
     transNew=Transaction(public_id=str(uuid.uuid4()),
-                        accountNumber=req["sendTo"],
-                        transactionValue=req["value"],
+                        accountNumber=sendToVal,
+                        transactionValue=valueVal,
                         accFrom=current_user.accountNumberCHEQ,
                         date=datetime.datetime.now())
     db.session.add(transNew)
@@ -175,15 +173,10 @@ def transfer():
     user_data={}
     user_data['chequing']=current_user.chequing
 
-    current_user.chequing = user_data['chequing']-req["value"]
+    current_user.chequing = user_data['chequing']-valueVal
 
 
     return jsonify(message="TRANSFER SUCCESS")
-
-
-
-
-
 
 
 if __name__ == '__main__':
