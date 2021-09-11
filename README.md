@@ -18,7 +18,7 @@ Our team wanted to utilize this fact and common base of individuals to build som
 
 ## What It Does 😃
 
-NAME is a backend service that a bank can implement to allow it's clients to text a number to view their banking information and perform other actions as well. Users can text the number provided to them a variety of commands and will receive a response back instantly via SMS. Users can also text this number to be provided a growing list of commands to ensure clients can utilize this service to it's maximum potential. We hope that this service allows individuals who maybe aren't the best at using mobile/desktop apps, or those with phones incapable of downloading apps, or those without an internet connection, can use this eervice to stay connected and in power of their finances.
+SMScotia is a backend service that a bank can implement to allow it's clients to text a number to view their banking information and perform other actions as well. Users can text the number provided to them a variety of commands and will receive a response back instantly via SMS. Users can also text this number to be provided a growing list of commands to ensure clients can utilize this service to it's maximum potential. We hope that this service allows individuals who maybe aren't the best at using mobile/desktop apps, or those with phones incapable of downloading apps, or those without an internet connection, can use this eervice to stay connected and in power of their finances.
 
 ## How We Built It 🔨
 
