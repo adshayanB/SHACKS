@@ -6,7 +6,7 @@
 
 # SMScotia
 
-SMScotia is an SMS service that allows customers to utilize SMS messaging to perform a variety of banking tasks such as checking balance, sending money to other individuals and more! 
+SMScotia is an SMS service that allows customers to utilize SMS messaging to perform a variety of banking tasks such as checking balance, sending money to other individuals and more! Our team has utilized natural langauge processing, a web python server and the Twilio API to make this possible to allow users to text messages to our service's number and be given accesses to online banking services usually restricted to mobile or desktop platforms. The purpose of this project was to bridge the gap between those who lack an internet connection or mobile data plan to give them more power using the tools they already have, SMS messaging! Users will not even require smartphones to utilize our service, and we hope that by bridging this gap, we empower those who are struggling a key to controlling their finances. 
 
 Demo: https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley [TODO ATTACH DEMO]
 
@@ -24,10 +24,19 @@ SMScotia is a backend service that a bank can implement to allow it's clients to
 
 Our backend service was built in **flask** and **python**. We utilized **flask** to service as the server that the incoming requests would be routed too. We used the **Twilio API** as a way to use SMS messaging for clients to actually send commands and receive responses from our server. We used **SQLite** in our python server to actual hold the bank account models, to use as storage and serve as our mock banking service. Finally we used a service called **Ngrok** as a way to host local python servers on a public domain site so we could test and demo the finished project.
 
+We used **NLP** or **Natural language processing** to process incoming text messages from our users to ensure that they could phrase commands however they like but still receive the information they required! 
+
 The **Twilio API** was especially vital in making our team's vision a reality. As this service is what really allowed us to make a working feature with actual SMS messaging instead of a mock version of it. We decided to use **Flask** so we could spend more time focussing on the features of our service rather than project set up. **Python** and **SQLite** are both easy to use tools that would speed up development. 
 
 ## How To Use It 🧠
 
-lorem ipsum
+You can text our service's number with a message in order to utilize online banking services, view your account information or simply get help! 
 
+To get help with available commands simply text a message like *"I need help"* and you will receive a list of available commands you can use via SMS.
+
+To check your account balance simply text a message like *"Check my balance"* or *"I want my balance"* to view your chequings and savings account balance.
+
+To send money to another person, send a message like this: *"Send $[NUMBER HERE] to +1[PHONE NUMBER HERE]"* or *"Send $[NUMBER HERE] to [EMAIL ADDRESS HERE]"* to utilize e-transfer via SMS to send money to another individual through their phone number or email.
+
+Finally to view some of your transactions simply send a message like this: "*View my last [NUMBER OF TRANSACTIONS HERE] transactions"* to be prompted with a list of your last transactions based on how many you would like to view.
 
