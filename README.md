@@ -8,7 +8,7 @@
 
 SMScotia is an SMS service that allows customers to utilize SMS messaging to perform a variety of banking tasks such as checking balance, sending money to other individuals and more! 
 
-Demo: https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley
+Demo: https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley [TODO ATTACH DEMO]
 
 ## Inspiration 💡
 
