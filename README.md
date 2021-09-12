@@ -8,7 +8,7 @@
 
 SMScotia is an SMS service that allows customers to utilize SMS messaging to perform a variety of banking tasks such as checking balance, sending money to other individuals and more! Our team has utilized natural langauge processing, a web python server and the Twilio API to make this possible to allow users to text messages to our service's number and be given accesses to online banking services usually restricted to mobile or desktop platforms. The purpose of this project was to bridge the gap between those who lack an internet connection or mobile data plan to give them more power using the tools they already have, SMS messaging! Users will not even require smartphones to utilize our service, and we hope that by bridging this gap, we empower those who are struggling a key to controlling their finances. 
 
-Demo: https://share.vidyard.com/watch/Ne8jrSmSkSXwedFgmTW8Yd?/
+Demo: https://share.vidyard.com/watch/Ne8jrSmSkSXwedFgmTW8Yd?
 
 ## Inspiration 💡
 
